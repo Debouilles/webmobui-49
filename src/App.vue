@@ -28,13 +28,13 @@ import { nextTick, watch, watchEffect } from '@vue/runtime-core';
 
   <h1>Temperature converter</h1>
 
-  <!-- <label>Precision</label>
+  <label>Precision</label>
   <base-input-number
     v-model="precision"
     :precision="0"
     min="0"
     max="10"
-  /> -->
+  />
 
   <label>Kelvin</label>
   <base-input-number
