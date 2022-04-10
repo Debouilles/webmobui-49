@@ -1,6 +1,5 @@
 <script setup>
   import { ref, computed } from '@vue/reactivity';
-import { nextTick, watch, watchEffect } from '@vue/runtime-core';
   import BaseInputNumber from './components/BaseInputNumber.vue';
 
   const tempSi = ref(0);
@@ -31,15 +30,15 @@ import { nextTick, watch, watchEffect } from '@vue/runtime-core';
   <label>Precision</label>
   <base-input-number
     v-model="precision"
-    :precision="0"
+    :decimal-places="3"
     min="0"
-    max="10"
+    max="6"
   />
 
   <label>Kelvin</label>
   <base-input-number
     v-model="kelvin"
-    :precision="precision"
+    :decimal-places="precision"
     unit="K"
     data-role="input"
   />
@@ -47,14 +46,14 @@ import { nextTick, watch, watchEffect } from '@vue/runtime-core';
   <label>Celsius</label>
   <base-input-number
     v-model="celsius"
-    :precision="precision"
+    :decimal-places="precision"
     unit="°C"
   />
 
   <label>Fahrenheit</label>
   <base-input-number
     v-model="fahrenheit"
-    :precision="precision"
+    :decimal-places="precision"
     unit="°F"
   />
 

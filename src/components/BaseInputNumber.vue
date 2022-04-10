@@ -7,7 +7,7 @@
       type: [String, Number],
       required: true,
     },
-    precision: {
+    decimalPlaces: {
       type: Number,
       required: false,
       default: 2
@@ -24,7 +24,7 @@
   ]);
 
   const value = computed({
-    get: () => round(props.modelValue, props.precision),
+    get: () => round(props.modelValue, props.decimalPlaces),
     set: val => {
       if (isNaN(val) || val === '') return;
       emit('update:modelValue', val);
@@ -45,12 +45,14 @@
 </template>
 
 <style scoped>
+
   input {
     display: inline-block;
     font-size: 1rem;
     border: solid black 1px;
     padding: 0 0.5rem;
   }
+
   span {
     display: inline-block;
     border: solid black 1px;
@@ -60,4 +62,5 @@
     text-align: center;
     border-width: 1px 1px 1px 0;
   }
+
 </style>
