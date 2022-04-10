@@ -1,4 +1,4 @@
-export function round(val, nbDecimals) {
-  const power =  10 ** nbDecimals;
+export function round(val, decimalPlaces = 2) {
+  const power =  10 ** decimalPlaces;
   return Math.round(val * power) / power;
 };
