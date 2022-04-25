@@ -1,78 +1,76 @@
 <script setup>
-  import { ref, computed } from '@vue/reactivity';
-  import BaseInputNumber from './components/BaseInputNumber.vue';
+  import { ref, computed } from 'vue';
 
-  const tempSi = ref(0);
+  import TheNav from './components/TheNav.vue';
+  import AppHome from './AppHome.vue';
+  import AppTempConverter from './AppTempConverter.vue';
+  import AppBookmarks from './AppBookmarks.vue';
 
-  const kelvin = computed({
-    get: () => tempSi.value,
-    set: val => tempSi.value = val
-  });
+  const routes = {
+    '#home': {
+      label: 'Accueil',
+      component: AppHome,
+    },
+    '#tempConverter': {
+      label: 'Températures',
+      component: AppTempConverter,
+    },
+    '#bookmarks': {
+      label: 'Favoris',
+      component: AppBookmarks,
+    },
+  };
 
-  const celsius =  computed({
-    get: () => tempSi.value - 273.15,
-    set: val => tempSi.value = val + 273.15
-  });
+  const hash = ref(window.location.hash);
 
-  const fahrenheit =  computed({
-    get: () => tempSi.value * 1.8 - 459.67,
-    set: val => tempSi.value = (val + 459.67) / 1.8
-  });
+  window.addEventListener('hashchange', () => hash.value = window.location.hash);
 
-  const precision = ref(2);
-
+  const curHash = computed(() => routes[hash.value] ? hash.value : Object.keys(routes)[0]);
+  const curComponent = computed(() => routes[curHash.value].component);
 </script>
 
 <template>
+  <header>
+    <h1>Webmobui</h1>
+    <h2>Vue.js - Prise en Main</h2>
+  </header>
 
-  <h1>Temperature converter</h1>
+  <the-nav :routes="routes" :curHash="curHash"></the-nav>
 
-  <label>Precision</label>
-  <base-input-number
-    v-model="precision"
-    :decimal-places="3"
-    min="0"
-    max="6"
-  />
-
-  <label>Kelvin</label>
-  <base-input-number
-    v-model="kelvin"
-    :decimal-places="precision"
-    unit="K"
-    data-role="input"
-  />
-
-  <label>Celsius</label>
-  <base-input-number
-    v-model="celsius"
-    :decimal-places="precision"
-    unit="°C"
-  />
-
-  <label>Fahrenheit</label>
-  <base-input-number
-    v-model="fahrenheit"
-    :decimal-places="precision"
-    unit="°F"
-  />
-
+  <main>
+    <component :is="curComponent" />
+  </main>
 </template>
+
+<style scoped>
+  header {
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+  h1 {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    color: var(--color-deco);
+  }
+  h2 {
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+  main {
+    padding: 1rem;
+  }
+</style>
 
 <style>
   * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
+
   :root {
-    font-size: 1em;
+    font-size: 1.3em;
+    --color-deco: tomato;
   }
-</style>
-
-<style scoped>
-  label {
-    display: block;
-    margin: 1rem 0 0.5rem 0;
-    font-size: 1.2rem;
-  }
-
 </style>
