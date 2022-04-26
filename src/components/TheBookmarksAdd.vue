@@ -11,11 +11,13 @@
 
   const label = ref(null);
   const url = ref(null);
+  const tags = ref(null);
 
   function addFav() {
     bookmarks.value.push({
       label: label.value,
-      url: url.value
+      url: url.value,
+      tags: tags.value
     })
     emit('added');
   }
@@ -24,17 +26,23 @@
 
 <template>
   <form @submit.prevent="addFav()">
-    <input v-model="label" type="text" placeholder="label" required>
-    <input v-model="url" type="url" placeholder="url" required>
+    <fieldset>
+      <legend>Nouveau favoris</legend>
+      <label>Label</label>
+      <input v-model="label" type="text" placeholder="label" required>
+      <label>Url</label>
+      <input v-model="url" type="url" placeholder="url" required>
+      <label>Tags</label>
+      <input v-model="tags" type="text" placeholder="tags" required>
 
-    <base-button class="btn-add">
-      Ajouter le favoris
-    </base-button>
+      <base-button class="btn-add">
+        + Ajouter le favoris
+      </base-button>
 
-    <base-button class="cancel" @click="$emit('cancel')">
-      Annuler
-    </base-button>
-
+      <base-button class="cancel" @click="$emit('cancel')">
+        ↶ Annuler
+      </base-button>
+    </fieldset>
   </form>
 </template>
 
@@ -45,11 +53,22 @@
     left: 0;
     width: 100%;
     min-height: 100%;
-    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.75);
     padding: 2rem;
     display: grid;
     align-content: center;
     justify-content: center;
+  }
+
+  fieldset {
+    background: white;
+    padding: 1rem;
+    width: 80%;
+  }
+
+  legend {
+    color: var(--color-deco);
+    font-weight: bold;
   }
 
   input {
@@ -58,10 +77,12 @@
     border: solid black 1px;
     padding: 0.1rem 0.3rem;
     margin: 0.5rem;
+    min-width: 20rem;
   }
 
   .btn-add {
-    margin: 0.5rem 0;
+    display: block;
+    margin: 1rem 0 0.5rem 0;
   }
 
 </style>
