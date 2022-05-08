@@ -5,6 +5,7 @@
   import AppHome from './AppHome.vue';
   import AppTempConverter from './AppTempConverter.vue';
   import AppBookmarks from './AppBookmarks.vue';
+  import AppChat from './AppChat.vue';
 
   const routes = {
     '#home': {
@@ -18,6 +19,10 @@
     '#bookmarks': {
       label: 'Favoris',
       component: AppBookmarks,
+    },
+    '#chat': {
+      label: 'Chat',
+      component: AppChat,
     },
   };
 
@@ -38,7 +43,11 @@
   <the-nav :routes="routes" :curHash="curHash"></the-nav>
 
   <main>
-    <component :is="curComponent" />
+    <template v-for="(route, hash) of routes">
+      <div v-show="hash == curHash">
+        <component :is="route.component"/>
+      </div>
+    </template>
   </main>
 </template>
 
@@ -73,4 +82,9 @@
     font-size: 1.3em;
     --color-deco: tomato;
   }
+
+  input {
+    font-size: 0.9em;
+  }
+
 </style>

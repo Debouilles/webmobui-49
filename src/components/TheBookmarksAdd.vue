@@ -63,7 +63,6 @@
   fieldset {
     background: white;
     padding: 1rem;
-    width: 80%;
   }
 
   legend {
