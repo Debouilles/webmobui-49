@@ -25,7 +25,7 @@
 </script>
 
 <template>
-  <div id="messages" ref="allMsgDom">
+  <div class="messages" ref="allMsgDom">
     <div v-for="(msg, index) of allMsg" :key="index">
       <span class="username">{{ msg.user.username }}</span>
       <span class="message">{{ msg.message }}</span>
@@ -34,7 +34,7 @@
 </template>
 
 <style scoped>
-  #messages {
+  .messages {
     border: solid black 1px;
     padding: 0.5rem;
     overflow: auto;
