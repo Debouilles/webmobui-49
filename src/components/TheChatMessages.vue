@@ -35,9 +35,7 @@
 
 <style scoped>
   #messages {
-    height: 60vh;
     border: solid black 1px;
-    margin-bottom: 1rem;
     padding: 0.5rem;
     overflow: auto;
   }

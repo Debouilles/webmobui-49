@@ -20,13 +20,9 @@
       {{ user.username }}
     </span>
   </div>
-
 </template>
 
 <style scoped>
-  div {
-    margin-bottom: .5rem;
-  }
   .username {
     display: inline-block;
     margin-right: 0.5rem;

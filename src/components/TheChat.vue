@@ -4,7 +4,7 @@
   import { apiLogout } from '../config/chat.js';
   import TheChatMessages from './TheChatMessages.vue';
   import TheChatAddForm from './TheChatAddForm.vue';
-import TheChatUsersOnline from './TheChatUsersOnline.vue';
+  import TheChatUsersOnline from './TheChatUsersOnline.vue';
 
   const { fetchJson: doLogout } = useFetch(apiLogout, false);
 
@@ -20,15 +20,22 @@ import TheChatUsersOnline from './TheChatUsersOnline.vue';
 </script>
 
 <template>
-  <the-chat-users-online></the-chat-users-online>
-  <the-chat-messages></the-chat-messages>
-  <the-chat-add-form></the-chat-add-form>
+  <the-chat-users-online class="online"/>
+  <the-chat-messages class="messages"/>
+  <the-chat-add-form />
   <base-button @click.prevent="$emit('logout')" class="cancel">
     Logout
   </base-button>
 </template>
 
 <style scoped>
+  .online {
+    margin-bottom: .5rem;
+  }
+  .messages {
+    height: 60vh;
+    margin-bottom: 1rem;
+  }
   .cancel {
     float: right;
   }
