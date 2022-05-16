@@ -2,7 +2,6 @@
   import { ref, watchEffect } from 'vue';
 
   import { bookmarks } from '../stores/bookmarks.js';
-  import BaseButton from './BaseButton.vue';
 
   const emit = defineEmits([
     'cancel',

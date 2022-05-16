@@ -2,7 +2,6 @@
   import { ref } from 'vue';
 
   import TheBookmarksList from './components/TheBookmarksList.vue';
-  import BaseButton from './components/BaseButton.vue';
   import TheBookmarksAdd from './components/TheBookmarksAdd.vue';
 
   const addMode = ref(false);

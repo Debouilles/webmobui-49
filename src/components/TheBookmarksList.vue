@@ -2,7 +2,6 @@
   import { computed, ref } from 'vue';
 
   import { bookmarks } from '../stores/bookmarks.js';
-  import BaseButton from './BaseButton.vue';
 
   function deleteFav(index) {
     bookmarks.value.splice(index, 1);

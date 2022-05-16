@@ -2,7 +2,7 @@
   import { computed, onMounted, ref, watchEffect } from '@vue/runtime-core';
   import { useFetch } from './composables/fetch.js';
   import { useLocalstorage } from './composables/localstorage.js';
-  import BaseButton from './components/BaseButton.vue';
+
   import TheChat from './components/TheChat.vue';
   import { apiLogin } from './config/chat.js';
 
