@@ -3,11 +3,12 @@
 </script>
 
 <template>
-  <p>
-    Correction "basique" des TP de la partie Vue.js du cours Webmob Ui
-  </p>
+<h1>Cette app m'aide à réviser</h1>
+<img src="./assets/img.png">
 </template>
 
 <style scoped>
-
+template{
+  align-items: center;
+}
 </style>
