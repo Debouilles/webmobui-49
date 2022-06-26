@@ -23,6 +23,8 @@
   <the-chat-users-online class="online"/>
   <the-chat-messages class="messages"/>
   <the-chat-add-form />
+
+  <!-- dialoguer d'un composant enfant vers le composant parent : utilisation de emit-->
   <base-button @click.prevent="$emit('logout')" class="cancel">
     Logout
   </base-button>

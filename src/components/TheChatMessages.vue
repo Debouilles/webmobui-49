@@ -14,7 +14,7 @@
   const allMsg = ref([]);
   const allMsgDom = ref(null);
 
-  watchEffect(async () => {
+  watchEffect(async () => { //push ajoute à la fin du tableau
     if (messages.value?.length > 0) {
       allMsg.value.push(...messages.value)
       await nextTick();
@@ -35,7 +35,7 @@
 
 <style scoped>
   .messages {
-    border: solid black 1px;
+    border: solid #f5b53f 1px;
     padding: 0.5rem;
     overflow: auto;
   }
