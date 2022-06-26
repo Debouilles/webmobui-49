@@ -13,30 +13,30 @@
   const url = ref(null);
   const tags = ref(null);
 
-  function addFav() {
+  function editFav() {
     bookmarks.value.push({
       label: label.value,
       url: url.value,
       tags: tags.value
     })
-    emit('added');
+    emit('edited');
   }
 
 </script>
 
 <template>
-  <form @submit.prevent="addFav()">
+  <form @submit.prevent="editFav()">
     <fieldset>
-      <legend>Nouveau favoris</legend>
+      <legend>Éditer le favoris</legend>
       <label>Label</label>
-      <input v-model="label" type="text" placeholder="label" required>
+      <input v-model="label" type="text" placeholder="label" >
       <label>Url</label>
-      <input v-model="url" type="url" placeholder="url" required>
+      <input v-model="url" type="url" placeholder="url" >
       <label>Tags</label>
-      <input v-model="tags" type="text" placeholder="tags" required>
+      <input v-model="tags" type="text" placeholder="tags" >
 
-      <base-button class="btn-add">
-        + Ajouter le favoris
+      <base-button class="btn-edit">
+        ~ éditer le favoris
       </base-button>
 
       <base-button class="cancel" @click="$emit('cancel')">

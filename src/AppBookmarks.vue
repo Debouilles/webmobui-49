@@ -1,6 +1,5 @@
 <script setup>
   import { ref } from 'vue';
-
   import TheBookmarksList from './components/TheBookmarksList.vue';
   import TheBookmarksAdd from './components/TheBookmarksAdd.vue';
 
@@ -17,6 +16,8 @@
     v-if="addMode"
     @cancel="addMode = false"
     @added="addMode = false"
+    @edited="addMode = false"
+
   />
 
   <the-bookmarks-list />
@@ -24,6 +25,7 @@
 
 <style scoped>
   .btn-add {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
   }
 </style>

@@ -33,6 +33,8 @@
   }
   li {
     display: inline-block;
+    font-family: 'verdana', sans-serif;
+    font-size: 20px;
   }
   a {
     padding: 0.5rem 1rem;

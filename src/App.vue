@@ -7,6 +7,8 @@ import AppTempConverter from './AppTempConverter.vue';
 import AppBookmarks from './AppBookmarks.vue';
 import AppChat from './AppChat.vue';
 import AppCurrencyConverter from './AppCurrencyConverter.vue';
+// import AppToDoList from './AppToDoList.vue';
+
 
 
 const routes = {
@@ -32,6 +34,10 @@ const routes = {
     component: AppCurrencyConverter,
   },
 
+// '#ToDoList': {
+//     label: 'ToDo List',
+//     component: AppToDoList,
+//   },
 };
 
 const hash = ref(window.location.hash);
@@ -70,8 +76,6 @@ h1 {
   font-size: 1.5rem;
   padding: 1rem;
   color: var(--color-deco);
-  
-
 }
 
 h2 {
@@ -98,5 +102,9 @@ main {
 
 input {
   font-size: 0.9em;
+}
+
+label{
+  
 }
 </style>
