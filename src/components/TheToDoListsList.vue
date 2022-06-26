@@ -4,16 +4,15 @@ import { computed, ref } from 'vue';
 import { bookmarks } from '../stores/bookmarks.js';
 // import TheBookmarksEdit from './TheBookmarksEdit.vue.js';
 
-function deleteFav(index) {
-  bookmarks.value.splice(index, 1);
+function deleteTache(index) {
+  todolists.value.splice(index, 1);
 }
 
 
 // function editFav(index) {
 //    function addFav() {
-//     bookmarks.value.push({
+//     todolists.value.push({
 //       label: label.value,
-//       url: url.value,
 //       tags: tags.value
 //     })
 //     emit('added');
@@ -21,8 +20,8 @@ function deleteFav(index) {
 // } 
 const filter = ref('');
 
-const bookmarksFiltered = computed(() => {
-  return bookmarks.value.filter(fav => fav.tags.includes(filter.value));
+const todolistsFiltered = computed(() => {
+  return todolists.value.filter(fav => fav.tags.includes(filter.value));
 })
 
 </script>
@@ -31,20 +30,20 @@ const bookmarksFiltered = computed(() => {
 
   <ul>
     <li class="filter">
-      <input v-model="filter" type="text" placeholder="Filtrer par tags">
+      <input v-model="filter" type="text" placeholder="Filtrer par noms">
     </li>
-    <li v-for="(bookmark, index) of bookmarksFiltered" :key="index">
-      <!-- : indique que c'est une valeur réactive -->
-      <a :href="bookmark.url" target="_blank">
-        {{ bookmark.label }}
+    <li v-for="(todolist, index) of todolistsFiltered" :key="index">
+    <a :href="todolist.url" target="_blank">
+        {{ todolist.label }}
       </a>
-      <span v-if="bookmark.tags">
-        - {{ bookmark.tags }}
+     
+      <span v-if="todolist.tags">
+        - {{ todolist.tags }}
       </span>
       <base-button @click="editFav(index)" class="btn-edit small">
         edit
       </base-button>
-      <base-button @click="deleteFav(index)" class="btn-delete small">
+      <base-button @click="deleteTache(index)" class="btn-delete small">
         x
       </base-button>
 

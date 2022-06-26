@@ -7,7 +7,8 @@
   import TheChatUsersOnline from './TheChatUsersOnline.vue';
 
   const { fetchJson: doLogout } = useFetch(apiLogout, false);
-
+//utlisation du emit pour dialogue du composant enfant vers le composant parent
+//tableau de tous les composants qu'on veut remonter,
   const emit = defineEmits([
     'logout'
   ]);

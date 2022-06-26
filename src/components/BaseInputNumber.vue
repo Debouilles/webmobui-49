@@ -2,6 +2,8 @@
   import { computed } from 'vue';
   import { round } from '../utils/math.js';
 
+
+//pas obligatoire mais rajoute du contrôle sur les entrées
   const props = defineProps({
     modelValue: {
       type: [String, Number],
@@ -15,6 +17,7 @@
     unit: {
       type: String,
       required: false,
+      // pas requis donc valeur par défaut importante
       default: ''
     }
   });
@@ -22,8 +25,10 @@
   const emit = defineEmits([
     'update:modelValue'
   ]);
-
+//computed valeur virtuelle ell est réactive par rapport à des données existantes
   const value = computed({
+    //get : injecter la valeur dans le champs // le way binding vers le haut n'est pas arrondi
+    //props du coup car on a rajouté des trucs en haut
     get: () => round(props.modelValue, props.decimalPlaces),
     set: val => {
       if (isNaN(val) || val === '') return;
@@ -32,7 +37,7 @@
   });
 
 </script>
-
+<!-- Si on fait correctement le nommage v-model fait le 2 way binding pour nous -->
 <template>
   <input
     v-bind="$attrs"

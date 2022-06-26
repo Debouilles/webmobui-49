@@ -17,7 +17,9 @@
   onMounted(() => {
     if (username.value != '') doLogin();
   })
-
+//on utilise watcheffect pour pouvoir voir les changements, permet de faire ce qu'un await aurait permis de faire.
+//watcheffect vérifie l'état actuel mais aussi les états futurs, donc on ne peut pas vérifier le .status qui n'est pas encore existant dans l'état actuel
+// le  ? permet de dire qu'on fait le test seulement si la propriété existe, sinon il rend faux
   watchEffect(() => {
     if (loginResult.value?.status == 'success') {
       isLogged.value = true;

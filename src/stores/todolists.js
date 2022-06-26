@@ -1,6 +1,6 @@
-// import {useLocalstorage} from '../composables/localstorage.js';
+import {useLocalstorage} from '../composables/localstorage.js';
 
-// export const { value: todolists } = useLocalstorage('todolists', [{
-//   label: `À faire`,
-//   tags: 'Importance'
-// }]);
+export const { value: todolists } = useLocalstorage('todolists', [{
+  label: `À faire`,
+  tags: 'Importance'
+}]);

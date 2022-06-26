@@ -16,9 +16,11 @@ export function useLocalstorage(key, defaultVal = null) {
   const value = ref(data);
 
   // every change of the data will be saved to the storage
+  //réécrire dans le localstorage dès qu'il y a un changement
+  //le watcheffect ne fonctionne que sur les données réactives
   watch(value, () => {
     localStorage.setItem(key, JSON.stringify(value.value));
   }, {deep: true});
-
+//comme si c'était : { value : value } c'est pareil quand le nom de la propriété de l'objet est identique à sa valeur
   return { value };
 }

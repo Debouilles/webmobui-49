@@ -7,7 +7,7 @@ import AppTempConverter from './AppTempConverter.vue';
 import AppBookmarks from './AppBookmarks.vue';
 import AppChat from './AppChat.vue';
 import AppCurrencyConverter from './AppCurrencyConverter.vue';
-// import AppToDoList from './AppToDoList.vue';
+import AppToDoLists from './AppToDoLists.vue';
 
 
 
@@ -30,14 +30,14 @@ const routes = {
   },
 
   '#currencyConverter': {
-    label: 'Convertisseur de monnaies',
+    label: 'Convertisseur EUR - CHF',
     component: AppCurrencyConverter,
   },
 
-// '#ToDoList': {
-//     label: 'ToDo List',
-//     component: AppToDoList,
-//   },
+'#ToDoList': {
+    label: 'ToDo List',
+    component: AppToDoLists,
+  },
 };
 
 const hash = ref(window.location.hash);

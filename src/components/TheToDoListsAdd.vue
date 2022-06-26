@@ -1,42 +1,38 @@
-<!-- <script setup>
+<script setup>
   import { ref, watchEffect } from 'vue';
 
-  import { bookmarks } from '../stores/bookmarks.js';
+  import { todolists } from '../stores/todolists';
 
   const emit = defineEmits([
     'cancel',
     'added',
-    'edited'
   ]);
 
-  const label = ref(label.value);
-  const url = ref(url.value);
-  const tags = ref(tags.value);
+  const label = ref(null);
+  const tags = ref(null);
 
-  function editFav() {
-    bookmarks.value.push({
+  function addTache() {
+    todolists.value.push({
       label: label.value,
-      url: url.value,
       tags: tags.value
     })
-    emit('edited');
+    emit('added');
   }
 
 </script>
 
 <template>
-  <form @submit.prevent="editFav()">
+  <form @submit.prevent="addTache()">
     <fieldset>
-      <legend>Éditer le favoris</legend>
-       <label>Label</label>
-      <input v-model="label" type="text" placeholder="label" required>
-      <label>Url</label>
-      <input v-model="url" type="url" placeholder="url" required>
-      <label>Tags</label>
-      <input v-model="tags" type="text" placeholder="tags" required>
+      <legend>Nouvelle tâche</legend>
+      <label>À faire</label>
+      <input v-model="label" type="text" placeholder="à faire" required>
+      
+      <label>Importance</label>
+      <input v-model="tags" type="text" placeholder="importance" required>
 
-      <base-button class="btn-edit">
-        ~ éditer le favoris
+      <base-button class="btn-add">
+        + Ajouter la tâche
       </base-button>
 
       <base-button class="cancel" @click="$emit('cancel')">
@@ -84,4 +80,4 @@
     margin: 1rem 0 0.5rem 0;
   }
 
-</style> -->
+</style>
